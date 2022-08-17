@@ -1,9 +1,8 @@
-import './App.css';
 
 function App() {
   return (
-    <div className="App">
-    
+    <div className="text-slate-200">
+    Mint site
     </div>
   );
 }
