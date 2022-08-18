@@ -14,12 +14,12 @@ const NavBar = ({ accounts, setAccounts }) => {
 
   return (
     <div>
-      <div id="main-nav" className="flex bg-slate-200 h-[60px] ">
+      <div id="main-nav" className="flex bg-[rgba(255,255,255,0.2)] h-[60px] text-white shadow-2xl">
         <div
           id="left-side"
           className="flex justify-start ml-4 p-4 items-center"
         >
-          <div className="mx-2">Facebook</div>
+          <div className="mx-2 ">Facebook</div>
           <div className="mx-2">Twitter</div>
           <div className="mx-2">Email</div>
         </div>
@@ -32,7 +32,10 @@ const NavBar = ({ accounts, setAccounts }) => {
           <div className="mx-2">Team</div>
           <div id="connect-button" className="ml-8">
             {!isConnected ? (
-              <button className="bg-rose-300 rounded-lg text-sm p-1 hover:bg-opacity-50 border-2 border-rose-400">
+              <button
+                onClick={connectAccount}
+                className="bg-rose-300 rounded-lg text-sm p-1 hover:bg-opacity-50 border-2 border-rose-400 text-rose-700"
+              >
                 Connect
               </button>
             ) : (

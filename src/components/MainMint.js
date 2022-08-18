@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ethers, BigNumber } from "ethers";
 import mankiNFT from "../MankiNFT.json";
+import PlusMinusBox from "./PlusMinusBox";
 
 const mankiNFTcontractAddress = "0xA9112489920960678DA6a075026ECAb6D9446200";
 
@@ -8,25 +9,25 @@ const MainMint = ({ accounts, setAccounts }) => {
   const [mintAmount, setMintAmount] = useState(1);
   const [errorAmount, setErrorAmount] = useState(null);
 
-  const isConnected = Boolean(accounts[0])
+  const isConnected = Boolean(accounts[0]);
 
-  const handleMint = () => {
-    if (window.ethereum){
-        const provider = new ethers.providers.Web3Provider(window.ethereum)
-        const signer = provider.getSigner()
-        const contract = new ethers.Contract(
-            mankiNFTcontractAddress,
-            mankiNFT.abi,
-            signer
-        )
-        try {
-            const response = await contract.mint(BigNumber.from(mintAmount))
-            console.log('response', response)
-        } catch (error) {
-            console.log("error", error)
-        }
+  const handleMint = async () => {
+    if (window.ethereum) {
+      const provider = new ethers.providers.Web3Provider(window.ethereum);
+      const signer = provider.getSigner();
+      const contract = new ethers.Contract(
+        mankiNFTcontractAddress,
+        mankiNFT.abi,
+        signer
+      );
+      try {
+        const response = await contract.mint(BigNumber.from(mintAmount));
+        console.log("response", response);
+      } catch (error) {
+        console.log("error", error);
+      }
     }
-  }
+  };
 
   const increase = () => {
     if (mintAmount < 3) {
@@ -52,27 +53,17 @@ const MainMint = ({ accounts, setAccounts }) => {
         id="amountOfmintNFT"
         className="flex justify-center items-center h-[300px]"
       >
-        <button
-          onClick={decrease}
-          className="bg-slate-500 text-white rounded-xl h-[50px] w-[40px]"
-        >
-          -
-        </button>
-        <input
-          type="text"
-          readOnly
-          value={mintAmount}
-          className="bg-slate-300 text-center w-[40px]"
-        />
-        <button
-          onClick={increase}
-          className="bg-slate-500 text-white rounded-xl h-[50px] w-[40px]"
-        >
-          +
-        </button>
-        <div className=" absolute mt-20 text-red-600 text-xs">
-          <p>{errorAmount}</p>
-        </div>
+        {isConnected ? (
+          <PlusMinusBox
+            decrease={decrease}
+            mintAmount={mintAmount}
+            increase={increase}
+            errorAmount={errorAmount}
+            handleMint={handleMint}
+          />
+        ) : (
+          <div className="text-sm text-rose-800">You are not connected yet</div>
+        )}
       </div>
     </div>
   );
