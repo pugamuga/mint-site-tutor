@@ -1,4 +1,5 @@
 import React from "react";
+import { Button, Box } from "@chakra-ui/react";
 
 const PlusMinusBox = ({
   decrease,
@@ -9,10 +10,13 @@ const PlusMinusBox = ({
 }) => {
   return (
     <div>
-      <div id="bool">
+      <div id="bool" >
+        <div className=" absolute left-[41%] bottom-[75%]  text-[12px] text-rose-600">
+          <p>{errorAmount}</p>
+        </div>
         <button
           onClick={decrease}
-          className="bg-slate-500 text-white rounded-xl h-[50px] w-[40px] border-4 border-green-500"
+          className="bg-green-400 text-white rounded-sm h-[50px] w-[40px] border-4 border-green-500"
         >
           -
         </button>
@@ -20,24 +24,19 @@ const PlusMinusBox = ({
           type="text"
           readOnly
           value={mintAmount}
-          className="bg-slate-300 text-center w-[40px]"
+          className="bg-[rgba(255,255,255,0.4)] text-center w-[40px] h-[40px] text-1xl text-white"
         />
         <button
           onClick={increase}
-          className="bg-slate-500 text-white rounded-xl h-[50px] w-[40px] border-4  border-green-500"
+          className="bg-green-400 text-white rounded-sm h-[50px] w-[40px] border-4  border-green-500"
         >
           +
         </button>
-        <div className="relative">
-          <div className="ml-2">
-            <div className="absolute text-[10px] -mt-8 p-3 text-rose-600">
-              <p>{errorAmount}</p>
-            </div>
-          </div>
+        <div className="">
           <div className="flex  justify-center mt-6">
             <button
               onClick={handleMint}
-              className="bg-green-400 border-green-500 border-4 text-white rounded-xl h-[50px] w-[100px]"
+              className="bg-green-400 border-green-500 border-4 text-white text-[8px]  rounded-sm h-[50px] w-[100px]"
             >
               Mint now!
             </button>

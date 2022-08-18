@@ -2,6 +2,7 @@ import { useState } from "react";
 import { ethers, BigNumber } from "ethers";
 import mankiNFT from "../MankiNFT.json";
 import PlusMinusBox from "./PlusMinusBox";
+import { Button, Box } from "@chakra-ui/react";
 
 const mankiNFTcontractAddress = "0xA9112489920960678DA6a075026ECAb6D9446200";
 
@@ -51,7 +52,7 @@ const MainMint = ({ accounts, setAccounts }) => {
     <div>
       <div
         id="amountOfmintNFT"
-        className="flex justify-center items-center h-[300px]"
+        className="flex justify-center items-center h-[300px] drop-shadow-[3px_3px_0px_black]"
       >
         {isConnected ? (
           <PlusMinusBox
@@ -62,7 +63,9 @@ const MainMint = ({ accounts, setAccounts }) => {
             handleMint={handleMint}
           />
         ) : (
-          <div className="text-sm text-rose-800">You are not connected yet</div>
+          <div className="text-sm text-rose-600 ">
+            <h1 className="">You are not connected yet</h1>
+          </div>
         )}
       </div>
     </div>

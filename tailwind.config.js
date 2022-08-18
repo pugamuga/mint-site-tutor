@@ -4,7 +4,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        robo: ["Press+Start+2P", "sans-serif"],
+        robo:"'Press Start 2P', cursive",
+        vt323: "'VT323', monospace",
       },
     },
   },
