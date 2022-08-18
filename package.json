@@ -1,5 +1,6 @@
 {
   "name": "mint-site-tutor",
+  "homepage": "https://pugamuga.github.io/mint-site-tutor",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -17,6 +18,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -49,6 +52,7 @@
     "dotenv": "^16.0.1",
     "ethereum-waffle": "^3.4.4",
     "ethers": "^5.6.9",
+    "gh-pages": "^4.0.0",
     "hardhat": "^2.10.2",
     "postcss": "^8.4.16",
     "tailwindcss": "^3.1.8"
