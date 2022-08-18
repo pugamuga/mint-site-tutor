@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/mint-site-tutor/static/css/main.04726f3c.css",
+    "main.js": "/mint-site-tutor/static/js/main.d26b8ba6.js",
+    "static/media/parallax-bg.gif": "/mint-site-tutor/static/media/parallax-bg.a753668321d10848110d.gif",
+    "index.html": "/mint-site-tutor/index.html",
+    "main.04726f3c.css.map": "/mint-site-tutor/static/css/main.04726f3c.css.map",
+    "main.d26b8ba6.js.map": "/mint-site-tutor/static/js/main.d26b8ba6.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.04726f3c.css",
+    "static/js/main.d26b8ba6.js"
+  ]
+}
